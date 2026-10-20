@@ -1,0 +1,36 @@
+{
+  "created_at": "2026-10-20T20:39:17+08:00",
+  "mode": "visa",
+  "sweep_type": "frequency",
+  "status": "complete",
+  "point_count": 201,
+  "settings": {
+    "start_mhz": 90.0,
+    "stop_mhz": 110.0,
+    "step_mhz": 0.1,
+    "fixed_mvpp": 500.0,
+    "hard_limit_mvpp": 580.0,
+    "settle_s": 0.2,
+    "samples_per_point": 1,
+    "sample_gap_s": 0.05,
+    "attenuation_db": 48.0,
+    "impedance_ohm": 50.0,
+    "visa_timeout_ms": 15000
+  },
+  "scpi_profile": {
+    "generator_prepare": ":OUTP1:LOAD 50\n:SOUR1:VOLT:UNIT VPP",
+    "generator_set_amplitude": ":SOUR1:VOLT {volts}",
+    "generator_set_frequency": ":SOUR1:FREQ {hz}",
+    "generator_output_on": ":OUTP1 ON",
+    "generator_output_off": ":OUTP1 OFF",
+    "analyzer_prepare": ":CALC:MARK1:STAT ON\n:CALC:MARK1:MODE POS\n:INIT:CONT OFF",
+    "analyzer_set_center": ":SENS:FREQ:CENT {hz}",
+    "analyzer_trigger": ":INIT:IMM",
+    "analyzer_opc_query": "*OPC?",
+    "analyzer_peak_search": ":CALC:MARK1:MAX:MAX",
+    "analyzer_peak_y_query": ":CALC:MARK1:Y?",
+    "analyzer_peak_x_query": ":CALC:MARK1:X?",
+    "analyzer_restore": ":INIT:CONT ON"
+  },
+  "csv_file": "frequency_sweep_20261020_203135.csv"
+}
